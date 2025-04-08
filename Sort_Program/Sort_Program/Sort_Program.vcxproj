@@ -130,6 +130,7 @@
     <ClCompile Include="bubble-sort.cpp" />
     <ClCompile Include="heap-sort.cpp" />
     <ClCompile Include="insertion-sort.cpp" />
+    <ClCompile Include="iofile.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="merge-sort.cpp" />
     <ClCompile Include="quick-sort.cpp" />
@@ -140,6 +141,7 @@
     <ClInclude Include="bubble-sort.h" />
     <ClInclude Include="heap-sort.h" />
     <ClInclude Include="insertion-sort.h" />
+    <ClInclude Include="iofile.h" />
     <ClInclude Include="merge-sort.h" />
     <ClInclude Include="quick-sort.h" />
     <ClInclude Include="radix-sort.h" />

@@ -39,6 +39,9 @@
     <ClCompile Include="bubble-sort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="iofile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="merge-sort.h">
@@ -60,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="bubble-sort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iofile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

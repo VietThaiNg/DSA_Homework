@@ -7,9 +7,9 @@ int findMin(int* a, int low, int n, int& cnt)
 	int min = low;
 	for (int i = low + 1; i < n; i++)
 	{
+		cnt++;
 		if (a[i] < a[min])
 		{
-			cnt++;
 			min = i;
 		}
 	}

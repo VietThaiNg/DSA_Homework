@@ -1,10 +1,2 @@
-﻿  bubble-sort.cpp
-  heap-sort.cpp
-  insertion-sort.cpp
-  main.cpp
-  merge-sort.cpp
-  quick-sort.cpp
-  radix-sort.cpp
-  selection-sort.cpp
-  Generating Code...
+﻿  main.cpp
   Sort_Program.vcxproj -> D:\24120441\Sort_Program\x64\Debug\Sort_Program.exe

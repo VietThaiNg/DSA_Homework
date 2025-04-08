@@ -1,2 +1,2 @@
 #pragma once
-void insertionSort(int* a, int n);
+void insertionSort(int* a, int n, int &cnt);

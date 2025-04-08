@@ -1,2 +1,2 @@
 #pragma once
-void bubbleSort(int* a, int n);
+void bubbleSort(int* a, int n, int &cnt);

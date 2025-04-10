@@ -1,6 +1,6 @@
 ﻿#include<iostream>
 #include <cmath>
-#include <time.h>
+#include<string>
 #include"merge-sort.h"
 #include"quick-sort.h"
 #include"radix-sort.h"
@@ -11,126 +11,36 @@
 #include"iofile.h"
 using namespace std;
 
-template <class T>
-void HoanVi(T& a, T& b)
-{
-	T x = a;
-	a = b;
-	b = x;
-}
+int main(int argc, char* argv[]) {
+    string algorithm;
+    string inputFile;
+    string outputFile;
 
-void GenerateRandomData(int a[], int n)
-{
-	srand((unsigned int)time(NULL));
-
-	for (int i = 0; i < n; i++)
-	{
-		a[i] = rand() % n;
-	}
-}
-
-void GenerateSortedData(int a[], int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		a[i] = i;
-	}
-}
-
-void GenerateReverseData(int a[], int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		a[i] = n - 1 - i;
-	}
-}
-
-void GenerateNearlySortedData(int a[], int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		a[i] = i;
-	}
-	srand((unsigned int)time(NULL));
-	for (int i = 0; i < 10; i++)
-	{
-		int r1 = rand() % n;
-		int r2 = rand() % n;
-		HoanVi(a[r1], a[r2]);
-	}
-}
-
-void GenerateData(int a[], int n, int dataType)
-{
-	switch (dataType)
-	{
-	case 0:	
-		GenerateRandomData(a, n);
-		break;
-	case 1:	
-		GenerateSortedData(a, n);
-		break;
-	case 2:	
-		GenerateReverseData(a, n);
-		break;
-	case 3:	
-		GenerateNearlySortedData(a, n);
-		break;
-	default:
-		printf("Error: unknown data type!\n");
-	}
-}
-
-int main()
-{
-    int choice;
-    cout << "========== MENU ==========\n";
-    cout << "1. Sinh du lieu va ghi vao file input.txt\n";
-    cout << "2. Doc input.txt, sap xep va ghi ra output.txt\n";
-    cout << "0. Thoat\n";
-    cout << "==========================\n";
-    cout << "Nhap lua chon: ";
-    cin >> choice;
-
-    if (choice == 1)
-    {
-        int n, type;
-        cout << "Nhap so luong phan tu: ";
-        cin >> n;
-        cout << "Chon loai du lieu:\n";
-        cout << "0. Ngau nhien\n1. Tang dan\n2. Giam dan\n3. Gan sap xep\n";
-        cout << "Nhap lua chon: ";
-        cin >> type;
-
-        int* a = new int[n];
-        GenerateData(a, n, type);
-        WriteArrayToFile("input.txt", a, n);
-        delete[] a;
-
-        cout << "Da ghi du lieu vao file input.txt\n";
+    for (int i = 1; i < argc; i++) {
+        string arg = argv[i];
+        if (arg == "-a" && i + 1 < argc) algorithm = argv[++i];
+        else if (arg == "-i" && i + 1 < argc) inputFile = argv[++i];
+        else if (arg == "-o" && i + 1 < argc) outputFile = argv[++i];
     }
-    else if (choice == 2)
-    {
-        int n;
-        int* a = ReadArrayFromFile("input.txt", n);
-		cout << "So luong phan tu doc duoc: " << n << endl;
-        if (a == nullptr) return 1;
 
-        int cnt = 0;
-        selectionSort(a, 0, n, cnt);
-        WriteSortedArrayToFile("output.txt", a, n, cnt);
-        delete[] a;
+    int n = 0;
+    int* arr = ReadArrayFromFile(inputFile, n);
+    if (!arr) return 1;
 
-        cout << "Da sap xep va ghi ket qua vao file output.txt\n";
+    if (algorithm == "selection-sort") selectionSort(arr, 0, n);
+    else if (algorithm == "insertion-sort") insertionSort(arr, n);
+    else if (algorithm == "bubble-sort") bubbleSort(arr, n);
+    else if (algorithm == "heap-sort") heapSort(arr, n);
+    else if (algorithm == "quick-sort") quickSort(arr, 0, n - 1);
+    else if (algorithm == "merge-sort") mergeSort(arr, 0, n - 1);
+    else if (algorithm == "radix-sort") radixSort(arr, n);
+    else {
+        delete[] arr;
+        return 1;
     }
-    else if (choice == 0)
-    {
-        cout << "Tam biet!\n";
-    }
-    else
-    {
-        cout << "Lua chon khong hop le!\n";
-    }
+
+    WriteArrayToFile(outputFile, arr, n);
+    delete[] arr;
 
     return 0;
 }

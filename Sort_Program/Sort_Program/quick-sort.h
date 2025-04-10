@@ -1,3 +1,4 @@
 #pragma once
-int patrition(int* a, int l, int r, int& cnt);
-void quickSort(int* a, int l, int r, int& cnt);
+int medianOfThree(int* a, int l, int r);
+int partition(int* a, int l, int r);
+void quickSort(int* a, int l, int r);

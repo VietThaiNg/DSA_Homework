@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-void insertionSort(int* a, int n, int &cnt)
+void insertionSort(int* a, int n)
 {
 	for (int i = 0; i < n; i++)
 	{
@@ -9,7 +9,6 @@ void insertionSort(int* a, int n, int &cnt)
 		int j = i - 1;
 		while (j >= 0)
 		{
-			cnt++; 
 			if (a[j] > key)
 			{
 				a[j + 1] = a[j];

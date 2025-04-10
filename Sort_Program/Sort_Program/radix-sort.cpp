@@ -1,6 +1,5 @@
 #include <iostream>
-#include <algorithm> 
-
+#include <algorithm>
 using namespace std;
 
 void count_sort(int* a, int n, int pos) {
@@ -21,7 +20,6 @@ void count_sort(int* a, int n, int pos) {
     delete[] count;
     delete[] ans;
 }
-
 
 void radixSort(int* a, int n) {
     if (n <= 0) return;
